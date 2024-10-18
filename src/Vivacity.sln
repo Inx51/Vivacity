@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vivacity.Server", "Vivacity.Server\Vivacity.Server.csproj", "{C162A345-EC3E-4AE4-AAFC-A0724D8CE308}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{63E71AED-2D1C-4E31-B1C0-29CB38AF1DBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C162A345-EC3E-4AE4-AAFC-A0724D8CE308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C162A345-EC3E-4AE4-AAFC-A0724D8CE308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C162A345-EC3E-4AE4-AAFC-A0724D8CE308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C162A345-EC3E-4AE4-AAFC-A0724D8CE308}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C162A345-EC3E-4AE4-AAFC-A0724D8CE308} = {63E71AED-2D1C-4E31-B1C0-29CB38AF1DBD}
+	EndGlobalSection
+EndGlobal
