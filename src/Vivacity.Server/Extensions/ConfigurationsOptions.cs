@@ -2,7 +2,7 @@
 
 public static class ConfigurationsOptions
 {
-    public static Options.ConfigurationsOptions.ConfigurationOptions? GetConfigurationByName(this Options.ConfigurationsOptions configurationsOptions, string name)
+    public static Options.ConfigurationsOptions.Configuration? GetConfigurationByName(this Options.ConfigurationsOptions configurationsOptions, string name)
     {
         return configurationsOptions.Configurations.FirstOrDefault(c => c.Name == name);
     }

@@ -1,10 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Caching.Hybrid;
 using Microsoft.Extensions.Options;
 using Vivacity.Server.Extensions;
+using Vivacity.Server.Services;
+using ConfigurationsOptions = Vivacity.Server.Options.ConfigurationsOptions;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<ConfigurationsOptions>(builder.Configuration.GetSection(ConfigurationsOptions.SectionName));
+
+builder.Services.AddHttpClient();
+builder.Services.AddSingleton<ConfigurationLoader>();
+builder.Services.AddSingleton<FileSystem>();
+
 var app = builder.Build();
 
 app.UseHttpsRedirection();
@@ -13,7 +20,7 @@ app.MapGet
 (
     "/configurations/{configurationName}",
     (
-        [FromServices] IOptionsSnapshot<Vivacity.Server.Options.ConfigurationsOptions> configurationsOptions,
+        [FromServices] IOptionsSnapshot<ConfigurationsOptions> configurationsOptions,
         [FromServices] ConfigurationLoader configurationLoader,
         [FromRoute] string configurationName
     ) =>
@@ -22,7 +29,7 @@ app.MapGet
         if (configuration is null)
             return Results.NotFound();
         
-        var configurationJson = configurationLoader.Load(configuration.Uri);
+        var configurationJson = configurationLoader.Load(configuration.Name, configuration.Uri);
         return Results.Ok(configurationJson);
     });
 
